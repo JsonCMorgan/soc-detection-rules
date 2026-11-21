@@ -1,0 +1,19 @@
+title: New local administrator account created
+id: 9f3c2a10-7d4e-4a01-9b22-111111111102
+status: test
+description: Event 4720 or 4732 indicating privileged local account change
+author: Jason Morgan
+date: 2025-11-20
+tags:
+    - attack.persistence
+    - attack.t1136
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID:
+            - 4720
+            - 4732
+    condition: selection
+level: high

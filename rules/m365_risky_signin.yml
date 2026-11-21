@@ -1,0 +1,16 @@
+title: Azure AD risky sign-in reported
+id: 9f3c2a10-7d4e-4a01-9b22-111111111109
+status: test
+description: Sentinel-style risky sign-in identity signal
+author: Jason Morgan
+date: 2025-11-20
+tags:
+    - attack.initial_access
+logsource:
+    product: azure
+    service: signinlogs
+detection:
+    selection:
+        RiskLevelDuringSignIn: high
+    condition: selection
+level: medium
