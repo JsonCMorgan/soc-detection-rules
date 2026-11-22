@@ -5,7 +5,7 @@
 
 ## What this repo is
 
-I'm Jason. This is my **detection-as-code** scratch pad: twelve [Sigma](https://github.com/SigmaHQ/sigma) rules aimed at the kind of alerts I want to be able to write and tune on a SOC floor. Windows 4625/4688, RDP, service installs, web SQLi, Linux SSH, DNS hints. CI loads every rule and converts it to **Splunk SPL** and **Microsoft Sentinel KQL** with pySigma so the YAML is not dead weight.
+This is my **detection-as-code** scratch pad: twelve [Sigma](https://github.com/SigmaHQ/sigma) rules aimed at the kind of alerts I want to be able to write and tune on a SOC floor. Windows 4625/4688, RDP, service installs, web SQLi, Linux SSH, DNS hints. CI loads every rule and converts it to **Splunk SPL** and **Microsoft Sentinel KQL** with pySigma so the YAML is not dead weight.
 
 | SOC theme | Example rule file |
 |-----------|-------------------|
