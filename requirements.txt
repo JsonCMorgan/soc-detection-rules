@@ -1,5 +1,5 @@
 pysigma>=0.11.0
-pysigma-backend-splunk>=1.0.0
+pysigma-backend-splunk>=3.0.1
 pysigma-backend-microsoft365defender>=0.3.2
 PyYAML>=6.0
 pytest>=8.0.0
