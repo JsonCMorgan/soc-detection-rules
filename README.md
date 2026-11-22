@@ -3,9 +3,9 @@
 [![CI](https://github.com/JsonCMorgan/soc-detection-rules/actions/workflows/ci.yml/badge.svg)](https://github.com/JsonCMorgan/soc-detection-rules/actions/workflows/ci.yml)
 ![Rules](https://img.shields.io/badge/rules-12-blue)
 
-## For mentors (30 seconds)
+## What this repo is
 
-**Detection-as-code:** twelve [Sigma](https://github.com/SigmaHQ/sigma) rules aimed at junior SOC work (Windows 4625/4688, RDP, service install, web SQLi, Linux SSH, DNS hints). CI loads every rule and converts it to **Splunk SPL** and **Microsoft Sentinel KQL** with pySigma so the rules are not dead YAML.
+I'm Jason. This is my **detection-as-code** scratch pad: twelve [Sigma](https://github.com/SigmaHQ/sigma) rules aimed at the kind of alerts I want to be able to write and tune on a SOC floor. Windows 4625/4688, RDP, service installs, web SQLi, Linux SSH, DNS hints. CI loads every rule and converts it to **Splunk SPL** and **Microsoft Sentinel KQL** with pySigma so the YAML is not dead weight.
 
 | SOC theme | Example rule file |
 |-----------|-------------------|
@@ -17,7 +17,7 @@
 | Cloud identity | `m365_risky_signin.yml` |
 | App / Linux / DNS | `web_sqli_uri.yml`, `linux_ssh_bruteforce.yml`, `dns_long_subdomain.yml` |
 
-**Related:** [boundry-ai-soc-platform](https://github.com/JsonCMorgan/boundry-ai-soc-platform) (SIEM + correlation practice).
+**Spine of the stack:** [boundry-ai-soc-platform](https://github.com/JsonCMorgan/boundry-ai-soc-platform) (where I practice SIEM workflow and correlation).
 
 ---
 
@@ -38,15 +38,15 @@
 | `linux_ssh_bruteforce.yml` | SSH authentication failure burst | Credential Access | T1110 |
 | `dns_long_subdomain.yml` | DNS query for unusually long subdomain | Command and Control | (tactic tag only) |
 
-Tags come from each rule's `tags:` block. Tune level and false positives per environment before production use.
+Tags come from each rule's `tags:` block. I'd tune level and false positives per environment before any production use.
 
 ---
 
-## Why Sigma exists (plain English)
+## Why I bother with Sigma
 
-A **Sigma rule** is a vendor-neutral recipe for an alert. You write it once. A converter prints Splunk, Sentinel, Elastic, or other dialects. That is how real SOCs avoid maintaining ten copies of the same logic.
+A **Sigma rule** is a vendor-neutral recipe for an alert. You write it once. A converter prints Splunk, Sentinel, Elastic, or other dialects. That's how real teams avoid maintaining ten copies of the same logic.
 
-**Analogy:** Sigma is the sheet music. Splunk and Sentinel are different bands playing the same song.
+**How I think about it:** Sigma is the sheet music. Splunk and Sentinel are different bands playing the same song.
 
 ---
 
@@ -72,6 +72,6 @@ print("\n".join(SplunkBackend().convert_rule(rule)))
 
 ---
 
-## Where it lives in your wider stack
+## How this ties to Boundry
 
-In [boundry-ai-soc-platform](https://github.com/JsonCMorgan/boundry-ai-soc-platform), correlation rules in `siem_rules` and training scenarios raise events that **these rules are meant to detect**. The next upgrade is mapping each Sigma `id` to a Boundry `siem_rules` row and a MITRE tag in the SIEM UI.
+In [boundry-ai-soc-platform](https://github.com/JsonCMorgan/boundry-ai-soc-platform), correlation rules in `siem_rules` and training scenarios raise events that **these rules are meant to detect**. Next step on my list: map each Sigma `id` to a Boundry `siem_rules` row and a MITRE tag in the SIEM UI.
