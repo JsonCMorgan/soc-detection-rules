@@ -21,6 +21,27 @@
 
 ---
 
+## MITRE ATT&CK mapping
+
+| Rule file | Title | Tactic (tag) | Technique ID |
+|-----------|-------|----------------|--------------|
+| `win_failed_logon_burst.yml` | Windows failed logon burst (4625) | Credential Access | T1110.001 |
+| `win_new_local_admin.yml` | New local administrator account created | Persistence | T1136 |
+| `win_powershell_encoded.yml` | Suspicious PowerShell encoded command | Execution | T1059.001 |
+| `win_security_log_cleared.yml` | Security event log cleared | Defense Evasion | T1070.001 |
+| `win_rdp_logon_type10.yml` | RDP interactive logon (type 10) | Lateral Movement | T1021.001 |
+| `win_service_install.yml` | New Windows service installed | Persistence | T1543.003 |
+| `win_special_privilege_logon.yml` | Special privileges assigned to new logon | Privilege Escalation | (tactic tag only) |
+| `fw_smb_egress.yml` | Outbound SMB connection attempt | Lateral Movement | (tactic tag only) |
+| `m365_risky_signin.yml` | Azure AD risky sign-in reported | Initial Access | (tactic tag only) |
+| `web_sqli_uri.yml` | HTTP request with SQLi patterns in URI | Initial Access | T1190 |
+| `linux_ssh_bruteforce.yml` | SSH authentication failure burst | Credential Access | T1110 |
+| `dns_long_subdomain.yml` | DNS query for unusually long subdomain | Command and Control | (tactic tag only) |
+
+Tags come from each rule's `tags:` block. Tune level and false positives per environment before production use.
+
+---
+
 ## Why Sigma exists (plain English)
 
 A **Sigma rule** is a vendor-neutral recipe for an alert. You write it once. A converter prints Splunk, Sentinel, Elastic, or other dialects. That is how real SOCs avoid maintaining ten copies of the same logic.
